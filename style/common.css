@@ -577,6 +577,10 @@ span.cal-item a {
     text-align: left;
 }
 
+table.mocal td a:first-child {
+    font-weight: bold;
+}
+
 tr.unread td._name {
     padding-left: 20px;
     background-image: url("web2project/images/icons/stock_new_small.png");
