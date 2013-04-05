@@ -5,15 +5,10 @@ echo '<div class="messageContainer">'.$AppUI->getMsg().'</div>';
 ?>
 <script type="text/javascript" charset="UTF-8">
 $(document).ready(function() {
+	$.sceditor.plugins.bbcode.bbcode.remove('size');
     $('textarea[name="message_body"]').sceditor({
-        plugins: 'bbcode',
-        emoticonsRoot: 'sceditor/',
-        style: 'sceditor/ocm.css',
+        style: 'lib/sceditor/ocm.css',
         locale: 'de',
-        fonts: 'sans-serif,serif,monospace,Arial Black,Impact,Comic Sans MS',
-        autoUpdate: true,
-        toolbar: 'bold,italic,underline,strike,subscript,superscript|font,color,removeformat|cut,copy,paste,pastetext|bulletlist,orderedlist,code,quote|email,link,unlink,emoticon',//|source', TODO: size, h1-h6, align, quote cite=
-        dropDownCss: { "z-index": 202 },
     });
 });
 </script>

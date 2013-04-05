@@ -19,9 +19,10 @@ require W2P_BASE_DIR . '/includes/ajax_functions.php';
     }
     $AppUI->loadHeaderJS();
     ?>
-    <link rel="stylesheet" type="text/css" href="sceditor/themes/default.min.css" media="all" charset="utf-8"/>
-    <script type="text/javascript" src="sceditor/jquery.sceditor.bbcode.min.js"></script>
-    <script type="text/javascript" src="sceditor/languages/de.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/sceditor/themes/w2p.css" media="all" charset="utf-8"/>
+    <script type="text/javascript" src="lib/sceditor/jquery.sceditor.bbcode.min.js"></script>
+    <script type="text/javascript" src="lib/sceditor/jquery.sceditor.w2p-helper.js"></script>
+    <script type="text/javascript" src="lib/sceditor/languages/de.js"></script>
   </head>
   
   <body onload="this.focus();" class="mod_<?= $_REQUEST['m'] ?> a_<?= $_REQUEST['a'] ?> <?= $_GET['dialog']?"dialog":"" ?>">
