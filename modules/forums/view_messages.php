@@ -3,6 +3,21 @@ if (!defined('W2P_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
 
+function nl2p($str) {
+    return "<p>" .
+    str_replace(
+    "\r", "</p><p>",
+    str_replace(
+    "\n", "</p><p>",
+    str_replace(
+    "\r\n", "</p><p>",
+    str_replace(
+    "<q>", "</p><q><p>",
+    str_replace(
+    "</q>", "</p></q><p>",
+    $str))))) . "</p>";
+}
+
 $AppUI->savePlace();
 $sort = w2PgetParam($_REQUEST, 'sort', 'asc');
 $viewtype = w2PgetParam($_REQUEST, 'viewtype', 'normal');
@@ -59,6 +74,7 @@ if (function_exists('styleRenderBoxTop')) {
 	<input type="hidden" name="dosql" value="do_post_aed" />
 	<input type="hidden" name="del" value="0" />
 	<input type="hidden" name="message_id" value="0" />
+	<input type="hidden" name="message_parent" value="<?php echo $message_id; ?>" />
 </form>
 <table border="0" cellpadding="4" cellspacing="1" width="100%" class="std view" align="center">
 
@@ -70,7 +86,7 @@ if (function_exists('styleRenderBoxTop')) {
                     $titleBlock = new w2p_Theme_TitleBlock('', '', $m, "$m.$a");
                     $titleBlock->addCrumb('?m=forums', 'forums list');
                     $titleBlock->addCrumb('?m=forums&a=viewer&forum_id=' . $forum_id, 'topics for this forum');
-                    $titleBlock->addCrumb('?m=forums&a=view_pdf&forum_id=' . $forum_id . '&message_id=' . $message_id . '&sort=' . $sort . '&suppressHeaders=1', 'view PDF file');
+//                    $titleBlock->addCrumb('?m=forums&a=view_pdf&forum_id=' . $forum_id . '&message_id=' . $message_id . '&sort=' . $sort . '&suppressHeaders=1', 'view PDF file');
                     $titleBlock->show();
                 ?>
             </td>
@@ -87,7 +103,7 @@ if (function_exists('styleRenderBoxTop')) {
                 <input type="button" class="button" value="<?php echo $AppUI->_('Sort By Date') . ' (' . $AppUI->_($sort) . ')'; ?>" onclick="javascript:window.location='./index.php?m=forums&a=viewer&forum_id=<?php echo $forum_id; ?>&message_id=<?php echo $message_id; ?>&sort=<?php echo $sort; ?>'" />
                 <?php if ($canAuthor) { ?>
                     <input type="button" class="button" value="<?php echo $AppUI->_('Post Reply'); ?>" onclick="javascript:window.location='./index.php?m=forums&a=viewer&forum_id=<?php echo $forum_id; ?>&message_parent=<?php echo $message_id; ?>&post_message=1';" />
-                    <input type="button" class="button" value="<?php echo $AppUI->_('New Topic'); ?>" onclick="javascript:window.location='./index.php?m=forums&a=viewer&forum_id=<?php echo $forum_id; ?>&message_id=0&post_message=1';" />
+                    <input type="button" class="button" value="<?php echo $AppUI->_('New Topic'); ?>" onclick="javascript:window.location='./index.php?m=forums&a=viewer&forum_id=<?php echo $forum_id; ?>&post_message=1';" />
                 <?php } ?>
             </td>
         </tr>
@@ -170,7 +186,7 @@ foreach ($messages as $row) {
 		$s .= '<td valign="top" style="' . $style . '">';
 		$s .= '<font size="2"><strong>' . $row['message_title'] . '</strong><hr size=1>';
 		$row['message_body'] = $bbparser->qparse($row['message_body']);
-        $row['message_body'] = nl2br($row['message_body']);
+        $row['message_body'] = nl2p($row['message_body']);
 		$s .= $row['message_body'];
 		$s .= '</font></td>';
 
@@ -188,7 +204,7 @@ foreach ($messages as $row) {
                 $tableOpened = false;
                 $tableClosed = false;
 		//the following users are allowed to edit/delete a forum message: 1. the forum creator  2. a superuser with read-write access to 'all' 3. the message author
-		if ($canEdit || $AppUI->user_id == $row['forum_moderated'] || $AppUI->user_id == $row['message_author'] || $canAdminEdit) {
+		if ($AppUI->user_id == $row['forum_moderated'] || $AppUI->user_id == $row['message_author'] || $canAdminEdit) {
                     $tableOpened = true;
                     $s .= '<table cellspacing="0" cellpadding="0" border="0"><tr>';
                     // edit message
@@ -196,7 +212,7 @@ foreach ($messages as $row) {
                     $s .= w2PshowImage('icons/stock_edit-16.png', '16', '16');
                     $s .= '</td>';
 		}
-		if ($canDelete || $AppUI->user_id == $row['forum_moderated'] || $AppUI->user_id == $row['message_author'] || $canAdminEdit) {
+		if ($AppUI->user_id == $row['forum_moderated'] || $AppUI->user_id == $row['message_author'] || $canAdminEdit) {
                     $tableClosed = true;
                     if(!$tableOpened) {
                         $s .= '<table cellspacing="0" cellpadding="0" border="0"><tr>';

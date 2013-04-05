@@ -1,0 +1,1660 @@
+/*
+COLORS:
+(
+   ocmgreen "#b1c903"
+   ocmorange "#ef7f01"
+   ocmlightorange "#fcdbb9"
+
+   actionbar "#fff0df"
+   workbg "#fff"
+   workshadow "#444"
+
+   done "#aaddaa"
+   late "#cc6666"
+   notstarted "#ffeebb"
+   active "#e6eedd"
+
+   disabledfg "#aaa"
+
+   highlight "#EFF0E1"
+   stronghighlight "#ccc"
+
+   highlight0 "#ffff66"
+   highlight1 "#add8e6"
+   highlight2 "#90ee8a"
+   highlight3 "#ff99ff"
+   highlight4 "#ffa500"
+   highlight5 "#adff2f"
+   highlight6 "#00ffff"
+   highlight7 "#ff69b4"
+
+   lightborder "#eee"
+   strongheadbg "#5c4a3b"
+   strongheadfg "#fff"
+
+   eventbg "#ff9"
+   todaybg "#e0e0e0"
+   taskbg "#aaf"
+   eventtaskbg "#fcf"
+   eventtodaybg "#fff0b0"
+
+   inputbg "#fff0df"
+   inputborder "#efb779"
+   inputshadow "#fff"
+   inputfocusbg "#ffe8cf"
+   inputfocusborder "#f80"
+
+   genericborder "#a08b78"
+   genericshadow "#c07a2f"
+
+   modnavfg "#fcdbb9"
+
+   navbg "#cde037"
+   navfg "#9f5714"
+   navhoverbg "#f1ff7f"
+
+   linkshadow "#e09c53"
+   lightlinkshadow "#fabf7c"
+
+   messagebg "#a00"
+   darkbg "#93a702"
+   texthighlight "#ff9b2f"
+)
+*/
+
+@font-face { font-family: "Commodore 64"; src: url("Commodore_64.ttf"); }
+
+/* tasks */
+
+table[bgcolor="black"] {
+    background-color: #ffe8cf /*[inputfocusbg]*/ !important;
+}
+
+table[bgcolor="black"] td {
+    padding: 1pt;
+}
+
+/* Project Designer */
+
+.done {
+    background-color:#aaddaa /*[done]*/;
+}
+
+.late, .late a:link, .late a:visited {
+    background-color:#cc6666 /*[late]*/;
+    color: #fff /*[workbg]*/;
+}
+
+.notstarted {
+    background-color:#ffeebb /*[notstarted]*/;
+}
+
+.active {
+    background-color:#e6eedd /*[active]*/;
+}
+
+.highlight0 { background-color: #FFFF66 /*[highlight0]*/; }
+.highlight1 { background-color: #ADD8E6 /*[highlight1]*/; }
+.highlight2 { background-color: #90EE8A /*[highlight2]*/; }
+.highlight3 { background-color: #FF99FF /*[highlight3]*/; }
+.highlight4 { background-color: #FFA500 /*[highlight4]*/; }
+.highlight5 { background-color: #ADFF2F /*[highlight5]*/; }
+.highlight6 { background-color: #00FFFF /*[highlight6]*/; }
+.highlight7 { background-color: #FF69B4 /*[highlight7]*/; }
+
+/* system settings */
+
+.mod_admin.a_viewuser .tabox > form > table.tbl {
+    font-size: 80%;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child td:nth-child(6) {
+    float: none;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child td:nth-child(15) {
+    margin-top: -2.5em;
+    margin-right: 3em;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child td {
+    display: block;
+    float: left;
+    height: 2em;
+    line-height: 2em;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child tr:first-child td:first-child {
+    padding-top: 1ex;
+    margin-bottom: 3em;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child td:last-child {
+    margin-top: -3em;
+    float: right;
+}
+
+.mod_admin.a_viewuser .tabox > form > table.tbl table.tbl:first-child tr:first-child td:last-child {
+    padding-top: 2ex;
+}
+
+.mod_admin.a_viewuser .tabox > form table table.tbl:nth-child(2) img {
+    margin: -1ex;
+}
+
+body.mod_admin.a_viewuser td.hilite form input[type="submit"] {
+    font-size: 80%;
+}
+
+body.mod_admin .module-nav .crumb-right a span::before {
+    display: none;
+}
+
+body.mod_admin .module-nav .crumb-right a {
+    line-height: 1.3em;
+}
+
+.mod_admin .module-nav .crumb-right {
+    position: absolute;
+    top: 1.1em;
+    left: 1em;
+}
+
+.mod_admin .std.view {
+    margin-bottom: 1em;
+}
+
+.mod_system .subtitle {
+    font-weight: bold;
+}
+
+.mod_system #mainWorkArea > .std > .right,
+.mod_system #mainWorkArea > .std > .left {
+    width: 50%;
+}
+
+.mod_system #mainWorkArea > .std .left.icon {
+    width: 20%;
+}
+
+.mod_system #mainWorkArea > .std > * .left {
+    width: 80%;
+}
+
+.mod_system .left {
+    float: left;
+}
+
+.mod_system .right {
+    float: right;
+}
+
+.mod_system .clear {
+    clear: both;
+    padding-bottom: 1em;
+}
+
+/* contacts table */
+table.contacts td > table.std {
+    border: 1px solid black;
+    padding: .5ex;
+    background-color: #EFF0E1 /*[highlight]*/;
+}
+
+table.contacts td.hilite {
+    background-color: #fff /*[workbg]*/;
+    padding: 0 .5ex 0 .5ex;
+}
+
+
+/* week calendar */
+
+.view td.workingDay, .view td.otherDay {
+    border: #eee /*[lightborder]*/ solid thin;
+    height: 300px;
+    vertical-align: top;
+    width:14.29%;
+}
+
+.view td.otherDay {
+    background: #EFF0E1 /*[highlight]*/;
+}
+
+.view td.workingDay strong, .view td.otherDay strong {
+    display: block;
+}
+
+/* year calendar */
+
+table.minical a, table.minical a:hover, table.minical a:active,
+table.mocal a, table.mocal a:hover, table.mocal a:active {
+	color: inherit;
+	text-shadow: none;
+}
+
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(2n),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:first-child,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3) > tbody > tr > td:nth-child(2n),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3) > tbody > tr > td:first-child,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4) > tbody > tr > td:nth-child(2n),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4) > tbody > tr > td:first-child {
+    display: none;
+}
+
+.mod_calendar.a_year_view #mainWorkArea > table,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td {
+    display: block;
+}
+
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2) > tbody,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2) > tbody > tr,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3) > tbody,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3) > tbody > tr,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4),
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4) > tbody,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4) > tbody > tr {
+    display: inline;
+}
+
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(3) > tbody > tr > td,
+.mod_calendar.a_year_view #mainWorkArea > table > tbody > tr > td > table:nth-child(4) > tbody > tr > td {
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+}
+
+/* month calendar - title area */
+table.motitle th {
+    font-size: 110%;
+}
+
+table.mocal {
+    cursor: pointer;
+    margin-bottom: 1em;
+    border-collapse: collapse;
+}
+
+table.mocal th {
+    background-color: #5C4A3B /*[strongheadbg]*/;
+    color: #fff /*[strongheadfg]*/;
+}
+
+table.mocal td {
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+    height: 6em;
+}
+
+table.mocal td.week {
+    background-color: #5C4A3B /*[strongheadbg]*/;
+}
+
+table.mocal td.empty {
+    background-color: #ccc /*[stronghighlight]*/;
+    color: #aaa /*[disabledfg]*/;
+}
+
+table.mocal td.day  {
+    background-color: #fff /*[workbg]*/;
+}
+
+table.mocal td.today {
+    background-color: white;
+    color: #ef7f01 /*[ocmorange]*/;
+    font-weight: bold;
+    border: 2px solid #ef7f01 /*[ocmorange]*/;
+}
+
+table.mocal td.weekend {
+    background-color: #EFF0E1 /*[highlight]*/;
+}
+
+table.mocal .event {
+    background-color: #ff9 /*[eventbg]*/;
+}
+
+/* mini calendar - title area */
+
+table.minical th {
+	font-size: 90%;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+}
+
+table.minical td {
+    text-align: center;
+}
+
+table.minical td a {
+    display: block;
+}
+
+table.minical td.empty {
+    color: #aaa /*[disabledfg]*/;
+    background-color: #ccc /*[stronghighlight]*/;
+}
+
+table.minical td.day  {
+    text-align: center;
+}
+
+table.minical td.today {
+    border: 1px dotted red;
+    background-color: #e0e0e0 /*[todaybg]*/;
+    text-align: center;
+}
+
+table.minical td.weekend {
+    background-color: #EFF0E1 /*[highlight]*/;
+    text-align: center;
+}
+
+table.minical td.event {
+    background-color: #ff9 /*[eventbg]*/;
+    text-align: center;
+}
+
+table.minical td.task {
+    background-color: #aaf /*[taskbg]*/;
+    text-align: center;
+}
+
+table.minical td.eventtask {
+    background-color: #fcf /*[eventtaskbg]*/;
+    text-align: center;
+}
+
+table.minical td.eventtoday {
+    background-color: #ff9 /*[eventbg]*/;
+    text-align: center;
+    border     : 1px dotted red;
+}
+
+table.minical td.tasktoday {
+    background-color: #aaf /*[taskbg]*/;
+    text-align: center;
+    border     : 1px dotted red;
+}
+
+table.minical td.eventtasktoday {
+    background-color: #fcf /*[eventtaskbg]*/;
+    text-align: center;
+    border     : 1px dotted red;
+}
+
+/* daily calendar */
+
+div.calendar {
+    z-index: 101;
+}
+
+table.tbl td.event {
+    background-color: #ff9 /*[eventbg]*/;
+}
+
+table.tbl td.event td {
+    background-color: #ff9 /*[eventbg]*/;
+}
+
+/* tabbed stuff */
+
+.tabbed {
+    background: #fff0df /*[actionbar]*/;
+    margin: 1ex -1ex 0 -1ex;
+}
+
+.module-title + .tabbed, .module-nav + .tabbed, .tabextra + .tabbed {
+    margin-top: -1em;
+}
+
+td > .tabbed {
+    margin-top: 1ex;
+}
+
+.tabs {
+    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-lines: multiple;
+    -webkit-box-align: end;
+    -webkit-flex-flow: row wrap-reverse;
+    flex-flow: row wrap-reverse;
+    -webkit-align-contents: flex-start;
+    -webkit-align-items: flex-start;
+    -webkit-justify-contents: flex-start;
+    -ms-flex-align: end;
+    -ms-flex-pack: start;
+    -ms-flex-wrap: wrap-reverse;
+    align-contents: flex-start;
+    align-items: flex-start;
+    justify-contents: flex-start;
+    font-size: 75%;
+    border-bottom: 1px solid #a08b78 /*[genericborder]*/;
+    padding: 0 1ex 0 1ex;
+    line-height: 1em;
+}
+
+div.tabs a {
+    display: block;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: .5em 1ex 2px 1ex;
+    margin: 4px 2pt 0 0;
+    height: 1em;
+    color: black;
+    position: relative;
+    white-space: nowrap;
+    z-index: 2;
+    background: #ffe8cf /*[inputfocusbg]*/;
+    border-radius: 1.3ex 1.3ex 0 0;
+    border: 1px solid #a08b78 /*[genericborder]*/;
+    border-bottom-color: #ffe8cf /*[inputfocusbg]*/;
+    text-shadow: none;
+    transition: .2s ease 0;
+    -webkit-transition: .2s ease 0;
+    -khtml-transition: .2s ease 0;
+	-moz-transition: .2s ease 0;
+	-o-transition: .2s ease 0;
+	-ms-transition: .2s ease 0;
+}
+
+div.tabs a:hover {
+	box-shadow: 1px 1px 2px #c07a2f /*[genericshadow]*/;
+    color: black;
+    text-shadow: none;
+    top: 0;
+    margin-top: 1px;
+    padding-bottom: 4px;
+}
+
+div.tabs a:active {
+    color: black;
+    text-shadow: none;
+    box-shadow: none;
+    margin-top: 2px;
+    padding-bottom: 3px;
+}
+
+div.tabs a.tabon {
+    margin-top: 1px;
+    background: #fff /*[workbg]*/;
+    border-bottom: 1px solid #fff /*[workbg]*/;
+    padding-bottom: 5px;
+    margin-bottom: -1px;
+	box-shadow: 1px 1px 2px #c07a2f /*[genericshadow]*/;
+    z-index: 1;
+}
+
+div.tabs a.tabon:hover {
+    margin-top: -2px;
+    padding-bottom: 6px;
+}
+
+.tabbed .tabox {
+    position: relative;
+    top: 0;
+    z-index: 4;
+    background: #fff /*[workbg]*/;
+    display: block;
+    padding: 1ex;
+}
+
+/* module: forum */
+
+.mod_forums table.list td[align="center"],
+table.list td.data.replies, table.list td.data._count {
+    width: 2em !important;
+}
+
+
+.mod_forums table.list td[width="225"],
+table.list td.data._reply {
+    width: 7em !important;
+}
+
+table.list td.data._name {
+    text-align: left;
+}
+
+table.list td.data._author {
+    width: 8em;
+}
+
+
+.mod_forums td font[color="#777777"] {
+	display: block /*[c16]*/;
+	font-size: 70%;
+	white-space: nowrap;
+	overflow: visible;
+	width: 1em;
+}
+
+.mod_forums.a_viewer table.view table form,
+.mod_forums.a_viewer table.view table td:last-child input:first-child,
+.mod_forums.a_viewer table.view tr:last-child table td:last-child input:last-child,
+.mod_forums.a_viewer table .module-title,
+.mod_forums.a_viewer #mainWorkArea > br,
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(2) td:first-child,
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(3),
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:last-child {
+    display: none;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(2) {
+    /* project name and description */
+    display: block;
+    position: absolute;
+    top: 4.6em;
+    left: 1em;
+    line-height: 1.2em;
+    right: 40em;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(2) td {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(2) td:nth-child(3) strong,
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:nth-child(2) td:nth-child(3) br {
+    /* description label */
+    display: none;
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr { 
+    position: absolute;
+    display: block;
+    top: 3em;
+}
+
+body.mod_forums.a_viewer .addedit tr:first-child td:first-child tr {
+    /* forum list link, see also below */
+    margin-left: -15em;
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr,
+.mod_forums.a_viewer table.list table td:first-child {
+    /* forum list link, see also below */
+    font-size: 75%;
+    display: block;
+    text-align: middle;
+    position: absolute;
+    top: 2.6em;
+    left: 50%;
+    margin-left: -5em;
+}
+
+.mod_forums.a_viewer table.view tr:first-child .module-nav { 
+    font-size: 111%;
+}
+
+.mod_forums.a_viewer table.view tr:first-child table td:last-child
+ {
+    /* action buttons */
+    display: block;
+    position: absolute;
+    top: 3.7em;
+    right: 11.5em;
+}
+
+body.mod_forums.a_viewer form + table.view {
+    border: 0;
+}
+
+.mod_forums.a_viewer form > table.list td:nth-child(2),
+.mod_forums.a_viewer form > table.list th:first-child {
+    display: none;
+}
+
+.mod_forums.a_viewer table.view tr:last-child {
+	border-top: 2px solid #a08b78 /*[genericborder]*/;
+}
+
+.mod_forums.a_viewer table.list table td:last-child {
+    /* new topic button */
+    display: block;
+    text-align: middle;
+    position: absolute;
+    top: 3.3em;
+    right: 11em;
+}
+
+.mod_forums.a_viewer table.list tr:first-child {
+    height: 0;
+    padding: 0;
+    border: 0;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:first-child td {
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] tr:first-child font {                                                    
+    /* forum name */
+    display: block;
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    margin-left: -4em;
+    font-family: "Commodore 64", sans-serif;
+    font-size: 133%;
+    font-weight: bold;
+}
+
+.mod_forums.a_viewer #mainWorkArea .module-title h1 {
+    padding-right: 17em;
+}
+
+.mod_forums.a_viewer .module-title h1::after {
+    content: ":";
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] {
+    margin-top: -4em;
+    font-size: 75%;
+    color: #aaa /*[disabledfg]*/;
+    border-collapse: collapse;
+}
+
+.mod_forums.a_viewer #mainWorkArea > table.view[cellspacing="0"] td {
+    padding: 0 1ex 0 1ex;
+    margin: 0;
+}
+
+.mod_forums td[width="30%"] {
+	width: auto !important;
+}
+
+.mod_forums td[width="225"] {
+	text-align: center;
+}
+
+.mod_forums.a_viewer form + table.view,
+table.list {
+	font-size: 90%;
+	border-collapse: collapse;
+	border-bottom: 2px solid #a08b78 /*[genericborder]*/;
+	margin: 1em auto 1em auto;
+	width: 98%
+}
+
+table.list td {
+	padding: 1ex 0 1ex 0;
+}
+
+table.list td.data {
+	text-align: center;
+}
+
+table.list td:first-child {
+	padding-left: 1em;
+}
+
+table.list td:last-child {
+	padding-right: 1em;
+}
+
+.mod_forums.a_viewer table.view th,
+table.list th {
+	background-color: #FFF0DF /*[actionbar]*/;
+	padding: 1ex 1ex 1ex 1ex;
+	border-top: 2px solid #A08B78 /*[genericborder]*/;
+	border-bottom: 2px solid #A08B78 /*[genericborder]*/;
+}
+
+table.list td[colspan="6"] {
+	border-top: 1px solid #A08B78 /*[genericborder]*/;
+	border-bottom: 1px solid #A08B78 /*[genericborder]*/;
+	padding: 1ex 0 1ex 1ex;
+}
+
+.mod_forums td > small, .mod_forums td > small + span {
+    display: none;
+}
+
+.mod_forums textarea {
+    width: 100%;
+}
+
+div.sceditor-container > iframe {
+    width: 98%;
+}
+
+div.sceditor-container {
+    border: none;
+    background: inherit;
+    height: 30em !important;
+}
+
+div div.sceditor-toolbar {
+	background: transparent;
+	border: 0;
+}
+
+div div.sceditor-grip {
+	padding-bottom: .8ex;
+}
+
+div div.sceditor-group {
+	border-radius: 0 1ex 1ex 1ex;
+}
+
+div#mainWorkArea q {
+	display: block;
+	margin: 1ex;
+	padding: 1ex;
+	border-radius: 0;
+	width: auto;
+	text-shadow: none;
+}
+
+div#mainWorkArea q::before {
+	content: "Zitat:";
+	font-weight: bold;
+	display: block;
+	position: relative;
+	top: -1.8ex;
+	background: #EFB779 /*[inputborder]*/;
+	width: 4em;
+	text-align: center;
+	margin-bottom: -1ex;
+}
+
+div#mainWorkArea q::after {
+	display: none;
+}
+
+/* main work area layout */
+
+ul.crumb-right {
+	display: block;
+	margin: 0.1em 0 1em 0;
+	padding: 0 1ex 0 1ex;
+	vertical-align: baseline;
+	direction: rtl;
+}
+
+ul.crumb-right a.button, ul.crumb-right input[type="submit"] {
+	line-height: 1.3em;
+}
+
+ul.crumb-right li {
+	direction: ltr;
+	display: inline-block;
+	margin: 0 1em 0 0;
+	min-height: 4ex;
+	padding: 0;
+}
+
+ul.crumb-right > *:last-child {
+	padding-bottom: .5ex;
+}
+
+ul.crumb-right img {
+	vertical-align: middle;
+}
+
+ul.crumb-right > * {
+	display: inline-block;
+	margin: .5ex 1em 0 0;
+	padding: 0;
+	font-size: 75%;
+	line-height: 3em;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+.module-nav {
+	display: block;
+	margin: 0;
+	padding: 0;
+	clear: right;
+	position: absolute;
+	top: 2.15em;
+	right: 0;
+	left: 0;
+	text-align: center;
+}
+
+.tabextra {
+    position: absolute;
+    top: 3.5em;
+}
+
+.module-nav div {
+	display: inline-block;
+}
+
+div.module-nav ul.crumb-right > * {
+	height: auto;
+	line-height: inherit;
+}
+
+.module-nav ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body div.module-nav ul li li {
+	font-size: 100%;
+}
+
+body div.module-nav ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	font-size: 75%;
+	margin-right: 1ex;
+	white-space: nowrap;
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr a.button,
+.mod_forums.a_viewer table.list table a.button,
+div.module-nav a {
+	color: #fcdbb9 /*[modnavfg]*/;
+    border: 0;
+    box-shadow: none;
+	background: transparent;
+	text-shadow: none;
+	padding: 0 1em 0 1em;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr a.button span::before,
+.mod_forums.a_viewer table.list table a.button div::before,
+div.module-nav a div::before, div.module-nav a span::before {
+	content: "▶ ";
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr a.button:hover,
+.mod_forums.a_viewer table.list table a.button:hover,
+div.module-nav a:hover {
+	color: white;
+	position: relative;
+	top: -1px;
+}
+
+.mod_forums.a_viewer .addedit tr:first-child td:first-child tr a.button:active,
+.mod_forums.a_viewer table.list table a.button:active,
+div.module-nav a:active {
+	color: white;
+	text-shadow: none;
+	position: relative;
+    top: 1px;
+}
+
+div#mainWorkArea {
+	padding: 1ex;
+    position: relative;
+    margin: -2px 1em 1em 11.5em;
+	overflow: hidden;
+	z-index: 10;
+    transition: margin-left .3s ease 0;
+    -webkit-transition: margin-left .3s ease;
+    -khtml-transition: margin-left .3s ease;
+	-moz-transition: margin-left .3s ease;
+	-o-transition: margin-left .3s ease;
+	-ms-transition: margin-left .3s ease;
+}
+
+.dialog div#mainWorkArea {
+    margin-left: 1em;
+}
+
+#maximize {
+    display: none;
+}
+
+#maximize + label {
+    display: block;
+    color: white;
+    text-shadow: none;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 100;
+    font-weight: bold;
+    font-size: 200%;
+    text-align: center;
+}
+
+#maximize + label::before {
+    display: block;
+    content: "+";
+}
+
+#maximize:checked + label::before {
+    content: "－";
+}
+
+#maximize:checked ~ div#mainWorkArea {
+    margin-left: 1em;
+}
+
+@media print {
+
+    a {
+        color: black !important;
+        text-shadow: none !important;
+        -webkit-text-shadow: none !important;
+        -moz-text-shadow: none !important;
+        -o-text-shadow: none !important;
+        -ms-text-shadow: none !important;
+    }
+
+    a.button,
+    input,
+    ul.crumb,
+    ul.crumb-right,
+    a > img,
+    div#navigationItems,
+    #maximize + label {
+        display: none !important;
+    }
+
+    .module-title h1 {
+        font-size: 150% !important;
+    }
+
+    div#mainWorkArea::before {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: url("images/logo_small.png");
+    }
+
+    div#mainWorkArea {
+        position: static;
+        margin: -1em -4em 0 0 !important;
+        width: 100%;
+        overflow: visible !important;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    body {
+        background-image: none;
+        font-size: 8pt !important;
+    }
+}
+
+
+body.dialog {
+    background-image: none;
+}
+
+body.dialog div#mainWorkArea {
+    margin: -1ex 1ex 0 1ex;
+}
+
+body.dialog div#mainWorkArea > form {
+    background: white;
+	margin: -1ex -1ex 0 -1ex;
+}
+
+body.dialog div#mainWorkArea > form > table {
+    margin-left: 1em;
+    padding-bottom: 1ex;
+    margin-bottom: -1ex;
+    width: auto !important;
+}
+
+body.dialog.mod_admin div#mainWorkArea > form td div {
+    height: 160px !important;
+}
+
+div#mainWorkArea .module-title {
+	background-color: #fff0df /*[actionbar]*/;
+	margin: -1ex -1ex 0 -1ex;
+	border-radius: 1ex 1ex 1ex 0;
+}
+
+div#mainWorkArea .module-title .icon img {
+	height: 32px;
+	width: 32px;
+	margin: .5em -3em 0 .5em;
+}
+
+div#mainWorkArea .module-title .icon {
+	float: left;
+}
+
+/* navigation layout */
+
+#userInfo .infotext {
+	display: none;
+}
+
+#navigationItems {
+    position: absolute;
+    left: 1em;
+	width: 9.5em;
+	padding: 0;
+	top: 16em;
+}
+
+.dialog #navigationItems {
+    display: none;
+}
+
+#navigationItems select {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+#userInfo {
+	margin-top: 1em;
+}
+
+#jumpToContent {
+	display: block;
+	margin-left: 1ex;
+	margin-bottom: -1em;
+}
+
+#quickSmartSearch {
+	display: block;
+	position: relative;
+	z-index: 1;
+	height: 1.3em;
+	line-height: 1em;
+	margin-bottom: .5ex;
+}
+
+#quickSmartSearch a {
+	display: block;
+	margin-top: -1.15em;
+	margin-left: .4ex;
+	color: black;
+    text-shadow: .5ex 0 .5ex #fff /*[inputshadow]*/, 0 .5ex .5ex #fff /*[inputshadow]*/, -.5ex 0 .5ex #fff /*[inputshadow]*/, 0 -.5ex .5ex #fff /*[inputshadow]*/;
+	transition: 3s ease-in 86400s;
+	-webkit-transition: 3s ease-in 86400s;
+	-khtml-transition: 3s ease-in 86400s;
+	-moz-transition: 3s ease-in 86400s;
+	-o-transition: 3s ease-in 86400s;
+	-ms-transition: 3s ease-in 86400s;
+}
+
+#quickSmartSearch input[type="text"] {
+	width: 7em;
+}
+
+#quickSmartSearch input {
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	border: 0;
+	margin: 0;
+	height: 1em;
+	padding-bottom: .1em;
+	background: transparent;
+}
+
+#quickSmartSearch a:link:active, #quickSmartSearch input:active ~ a {
+	opacity: 0;
+	transition: none;
+	-webkit-transition: none;
+	-khtml-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+}
+
+#quickSmartSearch input:focus ~ a {
+	opacity: 0;
+	transition: .3s ease-out;	
+	-webkit-transition: .3s ease-out;
+	-khtml-transition: .3s ease-out;
+	-moz-transition: .3s ease-out;
+	-o-transition: .3s ease-out;
+	-ms-transition: .3s ease-out;
+}
+
+div#headerNav a, #userInfo .quicknav a {
+	display: block;
+	background-color: #cde037 /*[navbg]*/;
+	color: #9f5714 /*[navfg]*/;
+	border-color: #9f5714 /*[navfg]*/;	
+	border-radius: 1ex 0 1ex 1ex;
+}
+
+div#headerNav a:hover, #userInfo .quicknav a:hover {
+	color: #ef7f01 /*[ocmorange]*/;
+	border-color: #ef7f01 /*[ocmorange]*/;
+	top: 0px;
+	box-shadow: 1px 1px 2px #c07a2f /*[genericshadow]*/;
+	background-color: #f1ff7f /*[navhoverbg]*/;
+	text-shadow: 2px 2px 4px #c07a2f /*[genericshadow]*/;
+}
+
+div#headerNav a:active, #userInfo .quicknav a:active {
+	text-shadow: none;
+}
+
+div#headerNav a.module {
+	border-color: #ef7f01 /*[ocmorange]*/;
+	color: #ef7f01 /*[ocmorange]*/;
+	background-color: white;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+	color: black;
+	background: #b1c903 /*[ocmgreen]*/ url("images/logo.png") 1em 1em no-repeat;
+	font: 11pt sans-serif;
+	line-height: 1.2em;
+	margin: 1px 0 0 0; /* hack for chrome <select> and :hover */
+	padding: 1em 0 0 0;
+	border: 0;
+	height: 100%;
+    min-height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+p ~ p {
+    margin-top: 1em;
+}
+
+a:link {
+	color: #ef7f01 /*[ocmorange]*/;
+	text-shadow: 1px 1px 3px #e09c53 /*[linkshadow]*/;
+	text-decoration: none;
+}
+
+a:link:hover, a:link:visited:hover {
+	color: #ef7f01 /*[ocmorange]*/;
+	position: relative;
+	top: -1px;
+	text-shadow: 3px 3px 6px #e09c53 /*[linkshadow]*/;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #ef7f01 /*[ocmorange]*/;
+}
+
+a:link:active {
+	position: relative;
+	top: 1px;
+	text-shadow: none;
+	color: #ef7f01 /*[ocmorange]*/;
+}
+
+q, div.sceditor-container > iframe, input[type="text"], input[type="password"], input[type="email"],
+ textarea, select, #quickSmartSearch {
+	background-color: #fff0df /*[inputbg]*/;
+	color: black;
+	font-family: sans-serif;
+	border: 1px solid #EFB779 /*[inputborder]*/;
+	padding: .5ex;
+	line-height: 1.2em;
+	border-radius: 1ex 1ex 1ex 0;
+	font-size: 100% !important;
+	text-shadow: .5ex 0 .5ex #fff /*[inputshadow]*/, 0 .5ex .5ex #fff /*[inputshadow]*/, -.5ex 0 .5ex #fff /*[inputshadow]*/, 0 -.5ex .5ex #fff /*[inputshadow]*/;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+ textarea:focus, select:focus, #quickSmartSearch:focus {
+	outline: none;
+	border-color: #f80 /*[inputfocusborder]*/;
+	background-color: #ffe8cf /*[inputfocusbg]*/;
+}
+
+body.mod_admin div#mainWorkArea .module-nav .crumb-right a,
+input[type="button"], input[type="submit"], input[type="reset"],
+ button, a.button, #headerNav a {
+	display: inline-block;
+	background-color: white;
+	color: #ef7f01 /*[ocmorange]*/;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	cursor: pointer;
+	margin: 0;
+	border: 1px solid #ef7f01 /*[ocmorange]*/;
+	padding: .5ex 1.5em .5ex 1.5em;
+	text-shadow: .2ex .2ex .3ex #fabf7c /*[lightlinkshadow]*/;
+	border-radius: 0 1ex 1ex 1ex;
+	box-shadow: 1px 1px 2px #c07a2f /*[genericshadow]*/;
+    vertical-align: baseline;
+}
+
+body.mod_admin div#mainWorkArea .module-nav .crumb-right a:hover,
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover,
+ button:hover, a.button:hover, #headerNav a:hover {
+	box-shadow: 2px 2px 8px #c07a2f /*[genericshadow]*/;
+	text-shadow: .2ex .2ex .3ex #fabf7c /*[lightlinkshadow]*/;
+	position: relative;
+	top: -1px;
+}
+
+body.mod_admin div#mainWorkArea .module-nav .crumb-right a:active,
+input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:active,
+ button:active, a.button:active, #headerNav a:active {
+	box-shadow: none;
+	text-shadow: .2ex .2ex .3ex #fabf7c /*[lightlinkshadow]*/;
+	position: relative;
+	top: 1px;
+}
+
+
+/* general table appearance */
+
+table.std.login, #mainWorkArea {
+	background: white;
+	margin: 1em auto 1em auto;
+	border: 0;
+	padding: 0;
+	border-radius: 1ex 1ex 0 1ex;
+	box-shadow: 1ex 1ex 1ex #444 /*[workshadow]*/;
+}
+
+table.std.login {
+	border-collapse: collapse;
+}
+
+table.std.login tr {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+table.std.login td {
+	border: 0;
+	margin: 0;
+	padding: 1em 1em .5em 1em;
+}
+
+td.hilite {
+    background-color: #EFF0E1 /*[highlight]*/;
+}
+
+
+body.dialog div#mainWorkArea > form > b {
+    display: block;
+}
+
+html body.dialog div#mainWorkArea h1 {
+    margin: -1ex -1ex 0 -1ex;
+}
+
+body.dialog div#mainWorkArea h1,
+body.dialog div#mainWorkArea > form > b,
+table.std.login th, #mainWorkArea .module-title h1 {
+	background: #ef7f01 /*[ocmorange]*/;
+	font-family: "Commodore 64", sans-serif;
+	font-size: 100%;
+	color: white;
+	padding: 1.1em;
+	line-height: 1em;
+	border: 0;
+	margin: 0;
+	border-radius: .8ex .8ex .8ex 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* screen: login */
+
+table.login a[onclick]::before {
+	content: "▶ ";
+}
+
+table.login img {
+	opacity: .2;
+}
+
+
+/* specific messages */
+
+.version {
+	color: #93a702 /*[darkbg]*/;
+	text-align: center;
+	margin-top: 2em;
+	font-size: 8pt;
+}
+
+.cookiemsg {
+	font-size: 75%;
+	font-weight: bold;
+	text-align: center;
+	margin: 1em;
+}
+
+div.error > table, #mainWorkArea > table:nth-child(1), #mainWorkArea > table:nth-child(2):not(.std) {
+	border: 2px solid red;
+	background: #a00 /*[messagebg]*/;
+	color: yellow;
+	font-size: 120%;
+	font-weight: bold;
+	padding: 1.5em;
+	margin: 1em auto 1em auto;
+	text-align: center;
+	border-radius: 1ex 1ex 1ex 0;
+}
+
+div#mainWorkArea > table:nth-child(1), div#mainWorkArea > table:nth-child(2):not(.std) {
+	display: block;
+	position: absolute;
+	top: 3em;
+	left: 3em;
+	right: 3em;
+    z-index: 202;
+	padding: 1ex;
+	box-shadow: 1ex 1ex 3ex #444 /*[workshadow]*/;
+	transition: 3s ease-in 86400s;
+	-webkit-transition: 3s ease-in 86400s;
+	-khtml-transition: 3s ease-in 86400s;
+	-moz-transition: 3s ease-in 86400s;
+	-o-transition: 3s ease-in 86400s;
+	-ms-transition: 3s ease-in 86400s;
+}
+
+*:hover div#mainWorkArea > table:nth-child(1), *:hover div#mainWorkArea > table:nth-child(2):not(.std) {
+	opacity: 0;
+	top: -3em;
+	transition: 1s ease 2s;
+	-webkit-transition: 1s ease 2s;
+	-khtml-transition: 1s ease 2s;
+	-moz-transition: 1s ease 2s;
+	-o-transition: 1s ease 2s;
+	-ms-transition: 1s ease 2s;
+}
+
+/* TipTip CSS - Version 1.2 */
+
+#tiptip_holder h4 {
+	font-weight: bold;
+	font-size: 120%;
+	margin: 0;
+	color: #FF9B2F /*[texthighlight]*/;
+}
+
+#tiptip_holder {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+	padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+	padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+	padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+	padding-right: 5px;
+}
+
+#tiptip_content {
+	font-size: 11px;
+	color: #fff;
+	text-shadow: 0 0 2px #000;
+	padding: 4px 8px;
+	border: 1px solid rgba(255,255,255,0.25);
+	background: rgb(25,25,25);
+	background: rgba(25,25,25,0.92);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 3px #555;
+	-moz-box-shadow: 0 0 3px #555;
+	box-shadow: 0 0 3px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+	border-top-color: #fff;
+	border-top-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+	border-bottom-color: #fff;
+	border-bottom-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+	border-right-color: #fff;
+	border-right-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+	border-left-color: #fff;
+	border-left-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+	margin-top: -7px;
+	margin-left: -6px;
+	border-top-color: rgb(25,25,25);
+	border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+	margin-top: -5px;
+	margin-left: -6px;
+	border-bottom-color: rgb(25,25,25);
+	border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -5px;
+	border-right-color: rgb(25,25,25);
+	border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip holder.tip_left #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -7px;
+	border-left-color: rgb(25,25,25);
+	border-left-color: rgba(25,25,25,0.92);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {	
+	#tiptip_content {
+		padding: 4px 8px 5px 8px;
+		background-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+		border-bottom-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_top #tiptip_arrow_inner { 
+		border-top-color: rgba(20,20,20,0.92);
+	}
+}
+
+/*end_tooltip*/
+
+
+
+/********************** DISABLED *********************/
+x .bordertable {
+     -moz-border-radius:3px;
+     -webkit-border-radius:3px;
+     border-radius:3px;
+}
+
+x textarea.small {
+    border: 1px #acacac solid /*[c44]*/;
+    
+    font-size: 8pt;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+}
+
+/*
+**********************************
+Begin IE TD buttonizing
+**********************************
+*/
+
+x TD.clsBtnUp {
+    color: #FFFFFF;
+    padding: 0px 3px;
+    border: inset 2px;
+}
+
+x TD.clsBtnDown {
+    color: #FFFFFF;
+    padding: 0px 3px;
+    border: inset 2px;
+}
+
+x TD.clsBtnOn {
+    color: #FFFFFF;
+    padding: 0px 3px;
+    border: outset #eeeeee 2px;
+}
+
+x TD.clsBtnOff {
+    color: #FFFFFF;
+    padding: 0px 3px;
+    border: solid #559999 2px;
+}
+
+x TD.topBtnOff {
+    color: #FFFFFF;
+    padding: 0px 3px;
+    border: solid #aeaeae 2px;
+}
+
+x td.label {
+	background-color:#FFFFFF;
+	background-image:url(images/label.gif);
+	height:22px;
+}
+
+x td.item {
+	background-color:#FFFFFF;
+	background-image:url(images/label.gif);
+	height:22px;
+}
+
+/* Standard table 'spreadsheet' style */
+x table.tbl {
+    background: #aeaeae;
+}
+
+x table.tbl TH {
+    background: url("images/lines_title_bar.gif");
+    height: 22px;
+    border-color: #a9d4ff;
+    white-space: nowrap;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    padding: 2px 2px 2px 2px;
+    font: 11px verdana, arial, helvetica, sans-serif;
+    text-align:center;
+    line-height:18px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+x table.tbl td {
+    background-color: #ffffff;
+}
+
+x table {
+    border-color: #acacac;
+}
+
+/* a 'standard' table */
+x table.std { 
+	border-color: #acacac; 
+	border-style: solid; 
+	border-width: 1px 2px 2px 1px; 
+	-moz-border-radius:3px; 
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+
+x table.std tr {
+	background: #fafafa;
+}
+
+x table.std tr.border {
+	background: transparent; 
+}
+
+x table.std TH {	
+	background-color:#FFFFFF;
+	background-image:url(images/label.gif);
+	font: bold 12px Arial, Helvetica, sans-serif;
+	text-align: center;
+    color: #000;
+	margin-bottom: 0;
+	padding: 1px;
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+x table.addedit.pref td {
+    width: 50%;
+}
+
+/* Solves a Webkit issue with screwy overlapping spans - #299 */
+x span > img {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+x ._problem span > img {
+    display: inherit;
+}
+
