@@ -13,6 +13,8 @@ $(document).ready(function() {
 });
 </script>
 </div>
+<?php if (!$_SERVER['HTTP_X_PJAX']) { ?>
+</div>
 
 <?php if (!$dialog) { ?>
 <div id="navigationItems">
@@ -86,4 +88,5 @@ $(document).ready(function() {
     <?php } ?>
   </div>
 </div>
+<?php } ?>
 <?php } ?>
