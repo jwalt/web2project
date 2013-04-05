@@ -16,6 +16,31 @@ Clear BSD License for more details.
 
 */
 
+/******************************************************************************************/
+/*                            OCM addon: kasserver ssl hack                               */
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https') {
+	header('Location: https://ssl-account.com/team.computermuseum-oldenburg.de/');
+	exit(301);
+}
+
+// Show an error message if this request is not forwarded from the kasserver SSL proxy.
+// This may be a new proxy IP address or a hacking attempt (MITM, XSS or similar)
+if($_SERVER['REMOTE_ADDR'] != '85.13.128.137') {
+	echo '<html><head><title>ERROR</title></head><body>';
+	echo '<h1 style="text-align: center;color:yellow;background:#800;padding:5em;margin:5em;border:2px solid red;">FEHLER: Unerwarteter Zugriff. Bitte Administrator verständigen.<br><br>';
+	echo $_SERVER['REMOTE_ADDR'].'</h1>';
+	// do not exit, because it most probably is a new proxy IP.
+}
+
+$_SERVER['SCRIPT_NAME'] = '/'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
+$_SERVER['HTTPS'] = 'on';
+$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+/*                                                                                        */
+/******************************************************************************************/
+
+
 $loginFromPage = 'index.php';
 require_once 'base.php';
 
