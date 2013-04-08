@@ -12,28 +12,33 @@ if (!$_SERVER['HTTP_X_PJAX']) {
     <link rel="stylesheet" type="text/css" href="style/<?= $uistyle ?>/main.css" media="all" charset="utf-8"/>
     <link rel="shortcut icon" href="style/<?= $uistyle ?>/icon.png" type="image/png" />
     <?php
+    if (isset($xajax) && is_object($xajax)) {
+        $xajax->printJavascript(w2PgetConfig('base_url') . '/lib/xajax');
+    }
     $AppUI->loadHeaderJS();
     ?>
-    <link rel="stylesheet" type="text/css" href="lib/sceditor/themes/w2p.css" media="all" charset="utf-8"/>
-    <script type="text/javascript" src="lib/sceditor/jquery.sceditor.bbcode.min.js"></script>
-    <script type="text/javascript" src="lib/sceditor/jquery.sceditor.w2p-helper.js"></script>
-    <script type="text/javascript" src="lib/sceditor/languages/de.js"></script>
     <script type="text/javascript" src="lib/jquery/jquery.pjax.js"></script>
     <script type="text/javascript">
     $(function(){
-        $('a[href!="#"]:not([href^="mailto:"])').pjax('#mainWorkArea', {
+        $('a[href!="#"]:not([href^="mailto:"]):not([href^="javascript:"]):not([onclick])').pjax('#mainWorkArea', {
             timeout: 1000,
             success: function() {
                 $('#mainWorkArea').addClass('loaded');
+                if (document.recalc) document.recalc();
+                xajax.config.requestURI = document.location.href;
+                $('body').scrollTop(0);
             }
         });
-        $('a[href!="#"]:not([href^="mailto:"])').live('click', function() {
+        $('a[href!="#"]:not([href^="mailto:"]):not([href^="javascript:"]):not([onclick])').live('click', function() {
             $('#mainWorkArea').removeClass('loaded');
+            $('#tiptip_holder').hide();
         });
         $('#headerNav a').click(function() {
             $('#headerNav a').removeClass('module');
             $(this).addClass('module');
         });
+        // xajax' own URL detection fails for SSL, this is the most portable alternative
+        xajax.config.requestURI = document.location.href;
     });
     </script>
   </head>
@@ -45,12 +50,6 @@ if (!$_SERVER['HTTP_X_PJAX']) {
     <div id="mainWorkArea" class="loaded">
 <?php } else { ?>
         <title><?= @w2PgetConfig('page_title') ?> :: <?= $AppUI->_($m) ?> <?= $AppUI->_($a) ?></title>
-<?php }
-
-if (isset($xajax) && is_object($xajax)) {
-    $xajax->printJavascript(w2PgetConfig('base_url') . '/lib/xajax');
-}
-
-echo $AppUI->getMsg();
-?>
-        <div class="mod_<?= $_REQUEST['m'] ?> a_<?= $_REQUEST['a'] ?>">
+        <?php $AppUI->getModuleJS($m, $a, true); ?>
+<?php } ?>
+        <div class="mod_<?= $m ?> a_<?= $a ?>">

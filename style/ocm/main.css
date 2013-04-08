@@ -76,6 +76,10 @@ table[bgcolor="black"] td {
 
 /* Project Designer */
 
+#gantt {
+    text-align: center;
+}
+
 .done {
     background-color:#aaddaa /*[done]*/;
 }
@@ -534,8 +538,11 @@ table.list td._author {
     width: 8em;
 }
 
-.mod_forums table.list tr.unread {
-    font-weight: bold;
+tr.unread td._name {
+    padding-left: 20px;
+    background-image: url("images/icons/stock_new_small.png");
+    background-position: left center;
+    background-repeat: no-repeat;
 }
 
 .mod_forums .editor {
@@ -707,7 +714,7 @@ div div.sceditor-group {
 	border-radius: 0 1ex 1ex 1ex;
 }
 
-div#mainWorkArea q {
+q, blockquote {
 	display: block;
 	margin: 1ex;
 	padding: 1ex;
@@ -716,7 +723,7 @@ div#mainWorkArea q {
 	text-shadow: none;
 }
 
-div#mainWorkArea q::before {
+q::before, blockquote::before {
 	content: "Zitat:";
 	font-weight: bold;
 	display: block;
@@ -728,7 +735,7 @@ div#mainWorkArea q::before {
 	margin-bottom: -1ex;
 }
 
-div#mainWorkArea q::after {
+q::after {
 	display: none;
 }
 
@@ -1346,6 +1353,23 @@ body.dialog div#mainWorkArea > div > form > b,
 
 /* specific messages */
 
+#loadingMessage {
+    position: fixed;
+    top: -1px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    background-color: rgba(0,0,0,.5);
+    z-index: 10000;
+}
+
+#loadingMessage > * {
+    height: 100%;
+    margin: auto;
+}
+
 .version {
 	color: #93a702 /*[darkbg]*/;
 	text-align: center;
@@ -1660,16 +1684,5 @@ x table.std TH {
 
 x table.addedit.pref td {
     width: 50%;
-}
-
-/* Solves a Webkit issue with screwy overlapping spans - #299 */
-x span > img {
-    display: block;
-    overflow: hidden;
-    position: relative;
-}
-
-x ._problem span > img {
-    display: inherit;
 }
 

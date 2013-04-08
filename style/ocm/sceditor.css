@@ -29,32 +29,36 @@ code{margin-top:1.5em;position:relative;background:#eee;border:1px solid #aaa;wh
 .ie6 code,.ie7 code{margin-top:0}
 code:before,code{display:block;text-align:left}
 
-blockquote {
+q, blockquote {
 	display: block;
 	margin: 1ex;
-    margin-bottom: 2ex;
 	padding: 1ex;
 	border-radius: 0;
 	width: auto;
 	text-shadow: none;
-	border: 1px solid #EFB779;
-	background: #ffe8cf;
+	background-color: #ffe8cf /*[inputfocusbg]*/;
+	color: black;
+	font-family: sans-serif;
+	border: 1px solid #EFB779 /*[inputborder]*/;
+	line-height: 1.2em;
+	font-size: 100% !important;
 }
 
-blockquote::before {
+q::before, blockquote::before {
 	content: "Zitat:";
 	font-weight: bold;
 	display: block;
 	position: relative;
 	top: -1.8ex;
-	background: #EFB779;
+	background: #EFB779 /*[inputborder]*/;
 	width: 4em;
 	text-align: center;
 	margin-bottom: -1ex;
 }
 
-blockquote::after {
+q::after {
 	display: none;
 }
+
 blockquote cite{font-weight:bold;display:block;font-size:1em;border-bottom:1px solid #aaa}
 div{min-height:1em}

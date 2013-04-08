@@ -3,20 +3,11 @@ global $a, $AppUI;
 $AppUI->loadFooterJS();
 echo '<div class="messageContainer">'.$AppUI->getMsg().'</div>';
 ?>
-<script type="text/javascript" charset="UTF-8">
-$(document).ready(function() {
-	$.sceditor.plugins.bbcode.bbcode.remove('size');
-    $('textarea[name="message_body"]').sceditor({
-        style: 'lib/sceditor/ocm.css',
-        locale: 'de',
-    });
-});
-</script>
 </div>
 <?php if (!$_SERVER['HTTP_X_PJAX']) { ?>
 </div>
 
-<?php if (!$dialog) { ?>
+<?php if (!$_GET['dialog']) { ?>
 <div id="navigationItems">
   <div id="quickSmartSearch">
 	<?php if (canAccess('smartsearch')) { ?>
